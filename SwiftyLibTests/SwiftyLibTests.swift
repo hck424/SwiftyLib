@@ -9,7 +9,8 @@ import XCTest
 @testable import SwiftyLib
 
 class SwiftyLibTests: XCTestCase {
-
+    var swiftyLib: SwiftyLib!
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -17,12 +18,20 @@ class SwiftyLibTests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    override func setUp() {
+        swiftyLib = SwiftyLib()
     }
-
+    func testAdd()throws {
+        XCTAssertEqual(swiftyLib.add(1, 1), 2)
+    }
+    func testSub() throws {
+        XCTAssertEqual(swiftyLib.sub(2, 1), 1)
+    }
+    func testExample() throws {
+        XCTAssertEqual(swiftyLib.add(1, 1), 2)
+        XCTAssertEqual(swiftyLib.sub(2, 1), 1)
+    }
+    
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {
